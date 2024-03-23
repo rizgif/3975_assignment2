@@ -9,13 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('buckets', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('category')->unique(); // Assuming you want the category to be unique
+            $table->text('description')->unique(); // Ensuring descriptions are unique
+            $table->timestamps(); // Laravel default timestamp fields for created_at and updated_at
         });
     }
+
 
     /**
      * Reverse the migrations.

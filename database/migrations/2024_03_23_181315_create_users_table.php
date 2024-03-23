@@ -9,13 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('role')->default('user');
+            $table->boolean('can_login')->default(false);
+            $table->boolean('can_access_transaction')->default(false);
+            $table->boolean('can_access_bucket')->default(false);
+            $table->boolean('can_access_report')->default(false);
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
