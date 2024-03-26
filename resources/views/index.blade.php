@@ -1,4 +1,4 @@
-@extends('layouts.app') {{-- Make sure you have a layout file --}}
+@extends('layouts.master') {{-- Make sure you have a layout file --}}
 
 @section('content')
 <div class="container text-center">
